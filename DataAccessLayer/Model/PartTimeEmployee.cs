@@ -12,7 +12,7 @@ namespace DataAccessLayer.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class PartTimeEmployee : EmployeesTPH
+    public partial class PartTimeEmployee : Employee
     {
         public double HourlyRate { get; set; }
     }

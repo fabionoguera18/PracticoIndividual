@@ -12,10 +12,10 @@ namespace DataAccessLayer.Model
     using System;
     using System.Collections.Generic;
     
-    public abstract partial class EmployeesTPH
+    public abstract partial class Employee
     {
-        public int EMP_ID { get; set; }
-        public string NAME { get; set; }
-        public System.DateTime START_DATE { get; set; }
+        public int EmployeeId { get; set; }
+        public string Name { get; set; }
+        public System.DateTime StartDate { get; set; }
     }
 }

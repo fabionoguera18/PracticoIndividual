@@ -5,9 +5,10 @@ using System.Web;
 
 namespace API_RES.Models
 {
-    public class Clase
+    public class Empleado
     {
         public int id;
-        public string nombre;
+        public string name;
+        public string start_date;
     }
 }

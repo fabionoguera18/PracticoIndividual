@@ -10,12 +10,12 @@ namespace API_RES.Controllers
     public class AccionesController : ApiController
     {
         // GET: api/Acciones
-        public IEnumerable<Models.Clase> Get()
+        public IEnumerable<Models.Empleado> Get()
         {
-            return new Models.Clase[] { new Models.Clase()
+            return new Models.Empleado[] { new Models.Empleado()
                 {
                 id = 1,
-                nombre = "Fabio"
+                name = "Fabio"
                 }
             };
         }

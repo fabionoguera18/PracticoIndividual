@@ -19,32 +19,53 @@ namespace BusinessLogicLayer
 
         public void AddEmployee(Employee emp)
         {
-            throw new NotImplementedException();
+            _dal.AddEmployee(emp);
         }
 
         public void DeleteEmployee(int id)
         {
-            throw new NotImplementedException();
+            _dal.DeleteEmployee(id);
         }
 
         public void UpdateEmployee(Employee emp)
         {
-            throw new NotImplementedException();
+            _dal.UpdateEmployee(emp);
         }
 
         public List<Employee> GetAllEmployees()
         {
-            throw new NotImplementedException();
+            return _dal.GetAllEmployees();
         }
 
         public Employee GetEmployee(int id)
         {
-            throw new NotImplementedException();
+            Employee e = _dal.GetEmployee(id);
+            if(e == null)
+            {
+                throw new Exception("Usuario no encontrado");
+            }
+            return e;
         }
 
         public double CalcPartTimeEmployeeSalary(int idEmployee, int hours)
         {
-            throw new NotImplementedException();
+            Employee e = _dal.GetEmployee(idEmployee);
+            if (e != null)
+            {
+                if (e.GetType().Name == "PartTimeEmployee")
+                {
+                    PartTimeEmployee Pte = (PartTimeEmployee)e;
+                    return Pte.HourlyRate * hours;
+                }
+                else
+                {
+                    throw new Exception("El usuario no es part-time");
+                }
+            }
+            else
+            {
+                throw new Exception("Usuario no encontrado");
+            }
         }
     }
 }

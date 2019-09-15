@@ -68,7 +68,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Empleado.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\EmployeesTPH.cs">
+    <Compile Include="Model\Employee.cs">
       <DependentUpon>Empleado.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\FullTimeEmployee.cs">

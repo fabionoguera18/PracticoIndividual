@@ -25,6 +25,6 @@ namespace DataAccessLayer.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<EmployeesTPH> EmployeesTPH { get; set; }
+        public virtual DbSet<Employee> Employee { get; set; }
     }
 }

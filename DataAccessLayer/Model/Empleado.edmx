@@ -37,23 +37,23 @@ advertencia 6002: La tabla o vista 'Practico_Entregable.dbo.EmployeesTPH' no tie
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Practico_EntregableModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="EmployeesTPH" Abstract="true">
+        <EntityType Name="Employee" Abstract="true">
           <Key>
-            <PropertyRef Name="EMP_ID" />
-            <PropertyRef Name="NAME" />
-            <PropertyRef Name="START_DATE" />
+            <PropertyRef Name="EmployeeId" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="StartDate" />
           </Key>
-          <Property Name="EMP_ID" Type="Int32" Nullable="false" />
-          <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="START_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityContainer Name="Practico_EntregableEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="EmployeesTPH" EntityType="Self.EmployeesTPH" />
+          <EntitySet Name="Employee" EntityType="Practico_EntregableModel.Employee" />
           </EntityContainer>
-        <EntityType Name="PartTimeEmployee" BaseType="Practico_EntregableModel.EmployeesTPH" >
+        <EntityType Name="PartTimeEmployee" BaseType="Practico_EntregableModel.Employee" >
           <Property Name="HourlyRate" Type="Double" Nullable="false" />
         </EntityType>
-        <EntityType Name="FullTimeEmployee" BaseType="Practico_EntregableModel.EmployeesTPH" >
+        <EntityType Name="FullTimeEmployee" BaseType="Practico_EntregableModel.Employee" >
           <Property Name="Salary" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
@@ -62,29 +62,29 @@ advertencia 6002: La tabla o vista 'Practico_Entregable.dbo.EmployeesTPH' no tie
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Practico_EntregableModelStoreContainer" CdmEntityContainer="Practico_EntregableEntities">
-          <EntitySetMapping Name="EmployeesTPH">
-            <EntityTypeMapping TypeName="IsTypeOf(Practico_EntregableModel.EmployeesTPH)">
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="IsTypeOf(Practico_EntregableModel.Employee)">
               <MappingFragment StoreEntitySet="EmployeesTPH">
-                <ScalarProperty Name="START_DATE" ColumnName="START_DATE" />
-                <ScalarProperty Name="NAME" ColumnName="NAME" />
-                <ScalarProperty Name="EMP_ID" ColumnName="EMP_ID" />
+                <ScalarProperty Name="StartDate" ColumnName="START_DATE" />
+                <ScalarProperty Name="Name" ColumnName="NAME" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EMP_ID" />
               </MappingFragment>
             </EntityTypeMapping>
             <EntityTypeMapping TypeName="IsTypeOf(Practico_EntregableModel.PartTimeEmployee)">
               <MappingFragment StoreEntitySet="EmployeesTPH">
                 <ScalarProperty Name="HourlyRate" ColumnName="RATE" />
-                <ScalarProperty Name="START_DATE" ColumnName="START_DATE" />
-                <ScalarProperty Name="NAME" ColumnName="NAME" />
-                <ScalarProperty Name="EMP_ID" ColumnName="EMP_ID" />
+                <ScalarProperty Name="StartDate" ColumnName="START_DATE" />
+                <ScalarProperty Name="Name" ColumnName="NAME" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EMP_ID" />
                 <Condition ColumnName="TYPE_EMP" Value="1" />
               </MappingFragment>
             </EntityTypeMapping>
             <EntityTypeMapping TypeName="IsTypeOf(Practico_EntregableModel.FullTimeEmployee)">
               <MappingFragment StoreEntitySet="EmployeesTPH">
                 <ScalarProperty Name="Salary" ColumnName="SALARY" />
-                <ScalarProperty Name="START_DATE" ColumnName="START_DATE" />
-                <ScalarProperty Name="NAME" ColumnName="NAME" />
-                <ScalarProperty Name="EMP_ID" ColumnName="EMP_ID" />
+                <ScalarProperty Name="StartDate" ColumnName="START_DATE" />
+                <ScalarProperty Name="Name" ColumnName="NAME" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EMP_ID" />
                 <Condition ColumnName="TYPE_EMP" Value="2" />
               </MappingFragment>
             </EntityTypeMapping>

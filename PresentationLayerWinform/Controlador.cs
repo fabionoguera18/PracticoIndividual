@@ -17,6 +17,7 @@ namespace PresentationLayerWinform
             IDALEmployees IDALEmp = new DALEmployeesEF();
             IB = new BLEmployees(IDALEmp);
         }
+
         public void AddEmployee(Employee emp)
         {
             IB.AddEmployee(emp);

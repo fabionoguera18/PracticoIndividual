@@ -26,9 +26,9 @@ namespace ServiceLayer
 
         private static void SetupService()
         {
-            Uri coso = new Uri("http://localhost:8834/tsi1/");
+            Uri dir = new Uri("http://localhost:8834/tsi1/");
 
-            ServiceHost host = new ServiceHost(typeof(ServiceEmployees), coso);
+            ServiceHost host = new ServiceHost(typeof(ServiceEmployees), dir);
             //Add a service endpoint
             host.AddServiceEndpoint(typeof(IServiceEmployees), new BasicHttpBinding(), "");
             //Enable metadata exchange
@@ -39,7 +39,7 @@ namespace ServiceLayer
             host.Open();
 
             Console.WriteLine("Service is host at " + DateTime.Now.ToString());
-            Console.WriteLine("Host is running... Press <Enter> key to stop");
+            Console.WriteLine("Presione (enter) para detener");
             Console.ReadLine();
             host.Close();
         }

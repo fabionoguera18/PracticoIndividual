@@ -14,6 +14,6 @@ namespace DataAccessLayer.Model
     
     public partial class PartTimeEmployee : Employee
     {
-        public double HourlyRate { get; set; }
+        public Nullable<double> HourlyRate { get; set; }
     }
 }

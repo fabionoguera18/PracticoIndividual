@@ -4,16 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Practico_EntregableModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'Practico_Entregable.dbo.EmployeesTPH' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+    <Schema Namespace="Practico_EntregableModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="EmployeesTPH">
           <Key>
             <PropertyRef Name="EMP_ID" />
-            <PropertyRef Name="NAME" />
-            <PropertyRef Name="START_DATE" />
           </Key>
-          <Property Name="EMP_ID" Type="int" Nullable="false" />
+          <Property Name="EMP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NAME" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="START_DATE" Type="datetime" Nullable="false" />
           <Property Name="SALARY" Type="int" />
@@ -21,40 +17,28 @@ advertencia 6002: La tabla o vista 'Practico_Entregable.dbo.EmployeesTPH' no tie
           <Property Name="TYPE_EMP" Type="int" Nullable="false" />
         </EntityType>
         <EntityContainer Name="Practico_EntregableModelStoreContainer">
-          <EntitySet Name="EmployeesTPH" EntityType="Self.EmployeesTPH" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [EmployeesTPH].[EMP_ID] AS [EMP_ID], 
-    [EmployeesTPH].[NAME] AS [NAME], 
-    [EmployeesTPH].[START_DATE] AS [START_DATE], 
-    [EmployeesTPH].[SALARY] AS [SALARY], 
-    [EmployeesTPH].[RATE] AS [RATE], 
-    [EmployeesTPH].[TYPE_EMP] AS [TYPE_EMP]
-    FROM [dbo].[EmployeesTPH] AS [EmployeesTPH]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="EmployeesTPH" EntityType="Self.EmployeesTPH" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Practico_EntregableModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Employee" Abstract="true">
           <Key>
             <PropertyRef Name="EmployeeId" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="StartDate" />
           </Key>
           <Property Name="EmployeeId" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" Nullable="false" />
         </EntityType>
         <EntityContainer Name="Practico_EntregableEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Employee" EntityType="Practico_EntregableModel.Employee" />
           </EntityContainer>
         <EntityType Name="PartTimeEmployee" BaseType="Practico_EntregableModel.Employee" >
-          <Property Name="HourlyRate" Type="Double" Nullable="false" />
+          <Property Name="HourlyRate" Type="Double" />
         </EntityType>
         <EntityType Name="FullTimeEmployee" BaseType="Practico_EntregableModel.Employee" >
-          <Property Name="Salary" Type="Int32" Nullable="false" />
+          <Property Name="Salary" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -73,8 +57,6 @@ advertencia 6002: La tabla o vista 'Practico_Entregable.dbo.EmployeesTPH' no tie
             <EntityTypeMapping TypeName="IsTypeOf(Practico_EntregableModel.PartTimeEmployee)">
               <MappingFragment StoreEntitySet="EmployeesTPH">
                 <ScalarProperty Name="HourlyRate" ColumnName="RATE" />
-                <ScalarProperty Name="StartDate" ColumnName="START_DATE" />
-                <ScalarProperty Name="Name" ColumnName="NAME" />
                 <ScalarProperty Name="EmployeeId" ColumnName="EMP_ID" />
                 <Condition ColumnName="TYPE_EMP" Value="1" />
               </MappingFragment>
@@ -82,8 +64,6 @@ advertencia 6002: La tabla o vista 'Practico_Entregable.dbo.EmployeesTPH' no tie
             <EntityTypeMapping TypeName="IsTypeOf(Practico_EntregableModel.FullTimeEmployee)">
               <MappingFragment StoreEntitySet="EmployeesTPH">
                 <ScalarProperty Name="Salary" ColumnName="SALARY" />
-                <ScalarProperty Name="StartDate" ColumnName="START_DATE" />
-                <ScalarProperty Name="Name" ColumnName="NAME" />
                 <ScalarProperty Name="EmployeeId" ColumnName="EMP_ID" />
                 <Condition ColumnName="TYPE_EMP" Value="2" />
               </MappingFragment>

@@ -21,7 +21,7 @@ namespace DataAccessLayer
                         Id = x.EmployeeId,
                         Name = x.Name,
                         StartDate = x.StartDate,
-                        Salary = x.Salary
+                        /* Salary = x.Salary*/
                     };
                     return employeeBase;
                 }
@@ -33,7 +33,7 @@ namespace DataAccessLayer
                         Id = x.EmployeeId,
                         Name = x.Name,
                         StartDate = x.StartDate,
-                        HourlyRate = x.HourlyRate
+                        /*HourlyRate = x.HourlyRate*/
                     };
                     return employeeBase;
                 }
@@ -77,30 +77,9 @@ namespace DataAccessLayer
 
         public void DeleteEmployee(int id)
         {
-/*            using (Model.Practico_EntregableEntities en = new Model.Practico_EntregableEntities())
-            {
-                Model.Employee emp = en.Employee.FirstOrDefault(x => x.EmployeeId== id);
-                if (emp != null)
-                {
-                    if(emp.GetType().Name == "FullTimeEmployee")
-                    {
-                        Model.FullTimeEmployee Fte = (Model.FullTimeEmployee)emp;
-                        en.Employee.Remove(Fte);
-                        en.SaveChanges();
-                    }
-                    else
-                    {
-                        Model.PartTimeEmployee Pte = (Model.PartTimeEmployee)emp;
-                        en.Employee.Remove(Pte);
-                        en.SaveChanges();
-                    }
-                }
-            }*/
             using (Model.Practico_EntregableEntities en = new Model.Practico_EntregableEntities())
             {
-
-                Model.Employee emp = en.Employee.FirstOrDefault(x => x.EmployeeId == id);
-                en.Employee.Remove(emp);
+                en.Employee.Remove(en.Employee.FirstOrDefault(x => x.EmployeeId == id));
                 en.SaveChanges();
             }
         }

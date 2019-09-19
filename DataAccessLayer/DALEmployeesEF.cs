@@ -21,7 +21,7 @@ namespace DataAccessLayer
                         Id = x.EmployeeId,
                         Name = x.Name,
                         StartDate = x.StartDate,
-                        /* Salary = x.Salary*/
+                        Salary = x.Salary
                     };
                     return employeeBase;
                 }
@@ -33,7 +33,7 @@ namespace DataAccessLayer
                         Id = x.EmployeeId,
                         Name = x.Name,
                         StartDate = x.StartDate,
-                        /*HourlyRate = x.HourlyRate*/
+                        HourlyRate = x.HourlyRate
                     };
                     return employeeBase;
                 }

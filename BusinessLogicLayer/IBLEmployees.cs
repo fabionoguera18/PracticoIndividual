@@ -19,6 +19,6 @@ namespace BusinessLogicLayer
 
         Employee GetEmployee(int id);
 
-        double CalcPartTimeEmployeeSalary(int idEmployee, int hours);
+        Nullable<double> CalcPartTimeEmployeeSalary(int idEmployee, int hours);
     }
 }

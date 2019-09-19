@@ -47,7 +47,7 @@ namespace BusinessLogicLayer
             return e;
         }
 
-        public double CalcPartTimeEmployeeSalary(int idEmployee, int hours)
+        public Nullable<double> CalcPartTimeEmployeeSalary(int idEmployee, int hours)
         {
             Employee e = _dal.GetEmployee(idEmployee);
             if (e != null)

@@ -8,6 +8,6 @@ namespace Shared.Entities
 {
     public class PartTimeEmployee : Employee
     {
-        public double HourlyRate { get; set; }
+        public Nullable<double> HourlyRate { get; set; }
     }
 }

@@ -54,19 +54,42 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controlador.cs" />
+    <Compile Include="EditarEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditarEmpleado.Designer.cs">
+      <DependentUpon>EditarEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrearEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearEmpleado.Designer.cs">
+      <DependentUpon>CrearEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Practico_EntregableDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Practico_EntregableDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Practico_EntregableDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Practico_EntregableDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CrearEmpleado.resx">
+      <DependentUpon>CrearEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditarEmpleado.resx">
+      <DependentUpon>EditarEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,6 +113,17 @@
     </None>
     <None Include="Practico_EntregableDataSet.xss">
       <DependentUpon>Practico_EntregableDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Practico_EntregableDataSet1.xsc">
+      <DependentUpon>Practico_EntregableDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Practico_EntregableDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Practico_EntregableDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Practico_EntregableDataSet1.xss">
+      <DependentUpon>Practico_EntregableDataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

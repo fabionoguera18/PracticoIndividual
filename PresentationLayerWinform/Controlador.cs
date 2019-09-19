@@ -42,7 +42,7 @@ namespace PresentationLayerWinform
             return IB.GetEmployee(id);
         }
 
-        public double CalcPartTimeEmployeeSalary(int idEmployee, int hours)
+        public Nullable<double> CalcPartTimeEmployeeSalary(int idEmployee, int hours)
         {
             return IB.CalcPartTimeEmployeeSalary(idEmployee, hours);
         }

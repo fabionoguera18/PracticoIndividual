@@ -28,6 +28,6 @@ namespace ServiceLayer
         Employee GetEmployee(int id);
 
         [OperationContract()]
-        double CalcPartTimeEmployeeSalary(int idEmployee, int hours);
+        Nullable<double> CalcPartTimeEmployeeSalary(int idEmployee, int hours);
     }
 }

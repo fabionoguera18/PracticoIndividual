@@ -1,4 +1,5 @@
 ﻿using BusinessLogicLayer;
+using DataAccessLayer;
 using Shared.Entities;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace ServiceLayer
 
         public ServiceEmployees()
         {
-            blHandler = Program.blHandler;
+            blHandler = new BLEmployees(new DALEmployeesEF());
         }
 
         public void AddEmployee(Employee emp)
@@ -43,7 +44,7 @@ namespace ServiceLayer
             return blHandler.GetEmployee(id);
         }
 
-        public double CalcPartTimeEmployeeSalary(int idEmployee, int hours)
+        public Nullable<double> CalcPartTimeEmployeeSalary(int idEmployee, int hours)
         {
             return blHandler.CalcPartTimeEmployeeSalary(idEmployee, hours);
         }

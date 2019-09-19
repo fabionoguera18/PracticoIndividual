@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shared.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,9 +21,8 @@ namespace PresentationLayerWinform
 
         private void datos()
         {
-            DataAccessLayer.DALEmployeesEF dales = new DataAccessLayer.DALEmployeesEF();
-            BusinessLogicLayer.BLEmployees bles = new BusinessLogicLayer.BLEmployees(dales);
-            Shared.Entities.Employee empEdit = bles.GetEmployee(Form1.id_e);
+            Controlador c = new Controlador();
+            Employee empEdit = c.GetEmployee(Form1.id_e);
 
             if (empEdit.GetType().Name == "FullTimeEmployee")
             {
@@ -46,8 +46,7 @@ namespace PresentationLayerWinform
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            DataAccessLayer.DALEmployeesEF dales = new DataAccessLayer.DALEmployeesEF();
-            BusinessLogicLayer.BLEmployees bles = new BusinessLogicLayer.BLEmployees(dales);
+            Controlador c = new Controlador();
 
             if (Form1.tipo_e == "FullTimeEmployee")
             {  
@@ -58,7 +57,7 @@ namespace PresentationLayerWinform
                     StartDate = date.Value,
                     Salary = Int32.Parse(atr.Text)
                 };
-                bles.UpdateEmployee(flte);
+                c.UpdateEmployee(flte);
             }
             else
             {
@@ -69,7 +68,7 @@ namespace PresentationLayerWinform
                     StartDate = date.Value,
                     HourlyRate = Int32.Parse(atr.Text)
                 };
-                bles.UpdateEmployee(flte);
+                c.UpdateEmployee(flte);
             }
             this.Close();
         }

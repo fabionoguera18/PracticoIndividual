@@ -36,7 +36,7 @@ namespace ServiceLayer
             return base.Channel.GetEmployee(id);
         }
 
-        public double CalcPartTimeEmployeeSalary(int idEmployee, int hours)
+        public Nullable<double> CalcPartTimeEmployeeSalary(int idEmployee, int hours)
         {
             return base.Channel.CalcPartTimeEmployeeSalary(idEmployee, hours);
         }

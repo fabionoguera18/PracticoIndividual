@@ -1,5 +1,4 @@
-﻿using BusinessLogicLayer;
-using DataAccessLayer;
+﻿using ServiceLayer;
 using Shared.Entities;
 using System;
 using System.Collections.Generic;
@@ -11,11 +10,10 @@ namespace PresentationLayerWinform
 {
     public class Controlador
     {
-        private IBLEmployees IB;
+        private IServiceEmployees IB;
         public Controlador()
         {
-            IDALEmployees IDALEmp = new DALEmployeesEF();
-            IB = new BLEmployees(IDALEmp);
+            IB = new ServiceEmployees();
         }
         public void AddEmployee(Employee emp)
         {

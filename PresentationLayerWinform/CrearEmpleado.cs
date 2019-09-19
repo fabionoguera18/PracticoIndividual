@@ -27,9 +27,7 @@ namespace PresentationLayerWinform
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            DataAccessLayer.DALEmployeesEF en = new DataAccessLayer.DALEmployeesEF();
-            BusinessLogicLayer.BLEmployees bus = new BusinessLogicLayer.BLEmployees(en);
-
+            Controlador c = new Controlador();
             if (comboBox1.Text == "FullTimeEmployee")
             {
                 Shared.Entities.FullTimeEmployee fte = new Shared.Entities.FullTimeEmployee()
@@ -38,7 +36,7 @@ namespace PresentationLayerWinform
                     StartDate = dateTimePicker1.Value,
                     Salary = Int32.Parse(Salary.Text),
                 };
-                bus.AddEmployee(fte);
+                c.AddEmployee(fte);
             }
             else
             {
@@ -48,7 +46,7 @@ namespace PresentationLayerWinform
                     StartDate = dateTimePicker1.Value,
                     HourlyRate = Int32.Parse(Rate.Text),
                 };
-                bus.AddEmployee(fte);
+                c.AddEmployee(fte);
             }
             this.Close();
         }
